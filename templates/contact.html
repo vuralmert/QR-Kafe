@@ -1,0 +1,165 @@
+{% extends 'basic.html' %}
+{% block title%} QR Kafe - Bize Ulaşın{% endblock %}
+{% block css %}
+
+ .footer.container-fluid.bg-dark.text-light {
+     position:fixed;
+     bottom:0;
+ }
+ .contact2 {
+   font-family: "Montserrat", sans-serif;
+   color: #8d97ad;
+   font-weight: 300;
+   /* padding: 60px 0; */
+   /* margin-bottom: 170px; */
+   background-position: center top;
+ }
+
+ .contact2 h1,
+ .contact2 h2,
+ .contact2 h3,
+ .contact2 h4,
+ .contact2 h5,
+ .contact2 h6 {
+   color: #3e4555;
+ }
+
+ .contact2 .font-weight-medium {
+   font-weight: 500;
+ }
+
+ .contact2 .subtitle {
+   color: #8d97ad;
+   line-height: 24px;
+ }
+
+ .contact2 .bg-image {
+   background-size: cover;
+   position: relative;
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+ }
+
+ .contact2 .card.card-shadow {
+     -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+     box-shadow: 0px 0px 30px rgba(61, 109, 214, 0.774);
+ }
+
+ .contact2 .detail-box .round-social {
+   margin-top: 100px;
+ }
+
+ .contact2 .round-social a {
+   background: transparent;
+   margin: 0 7px;
+   padding: 11px 12px;
+ }
+
+ .contact2 .contact-container .links a {
+   color: #8d97ad;
+ }
+
+ .contact2 .contact-container {
+   position: relative;
+   top: 107px;
+ }
+
+ .contact2 .btn-danger-gradiant {
+   background: #ff4d7e;
+   background: -webkit-linear-gradient(legacy-direction(to right), #ff4d7e 0%, #ff6a5b 100%);
+   background: -webkit-gradient(linear, left top, right top, from(#ff4d7e), to(#ff6a5b));
+   background: -webkit-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+   background: -o-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+   background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
+ }
+
+ .contact2 .btn-danger-gradiant:hover {
+   background: #ff6a5b;
+   background: -webkit-linear-gradient(legacy-direction(to right), #ff6a5b 0%, #ff4d7e 100%);
+   background: -webkit-gradient(linear, left top, right top, from(#ff6a5b), to(#ff4d7e));
+   background: -webkit-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+   background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+   background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
+ }
+{% endblock %}
+{% block body %}
+<div class="contact2" style="background-image:url(http://127.0.0.1:8000/media/shop/images/map.jpg);height: 400px;" id="contact">
+  <div class="container">
+    <div class="row contact-container">
+      <div class="col-lg-12">
+        <div class="card card-shadow border-0">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="contact-box p-4">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h4 class="title">Bize Ulaşın</h4>
+                  </div>
+                </div>
+                <form action="/contact/" method="POST">{% csrf_token %}
+                  <div class="form-group mt-3">
+                      <b><label for="name">Adınız</label></b>
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Adınızı Giriniz" required>
+                  </div>
+                  <div class="form-group mt-3">
+                      <b><label for="email">E-Posta</label></b>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="E-Posta Adresinizi Giriniz" required>
+                  </div>
+                  <div class="form-group mt-3">
+                      <b><label for="phone">Telefon No.</label></b>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon">+90</span>
+                          </div>
+                          <input type="tel" class="form-control" id="phone" name="phone" aria-describedby="basic-addon" placeholder="Telefon Numaranızı Giriniz" required pattern="[0-9]{10}">
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                    <b><label for="desc">Mesajınız</label></b>
+                    <textarea class="form-control" id="desc" name="desc" rows="2" required minlength="6" placeholder="Size Nasıl Yardımcı Olabiliriz ?"></textarea>
+                  </div>
+                    <button type="submit" class="btn btn-danger-gradiant text-white border-0 py-2 px-3"><span> KAYDET <i class="ti-arrow-right"></i></span></button>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-4 bg-image" style="background-image:url(http://127.0.0.1:8000/media/shop/images/contact.jpg)">
+                    <div class="detail-box p-4">
+                      <h5 class="text-white font-weight-light mb-3">ADRES</h5>
+                      <p class="text-white op-7">Tekirdağ Namık Kemal Üniversitesi <br> Çorlu Mühendislik Fakültesi </p>
+                      <h5 class="text-white font-weight-light mb-3 mt-4">BİZİ ARAYIN</h5>
+                      <p class="text-white op-7">5422509968</p>
+                      <div class="round-social light">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=2190656022@nku.edu.tr" class="ml-0 text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="far fa-envelope"></i></a>
+                        <a href="https://github.com/vuralmert" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="fab fa-github"></i></a>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+
+$('#popcart').popover();
+updatePopover(cart);
+
+function updatePopover(cart) {
+    var popStr = "";
+    popStr = popStr + "<h5><a href='/checkout'><button class='btn btn-primary'>Ödemeye Geç</button></a></h5><div class='mx-2 my-2'>";
+    document.getElementById("popcart").setAttribute('data-content', popStr);
+    $('#popcart').popover();
+}
+
+{% if thank %}
+alert('Bizimle iletişim kurduğunuz için teşekkür ederiz! En kısa sürede tarafınıza dönüş yapılacaktır!');
+document.location = "/home";
+{% endif %}
+
+</script>
+{% endblock %}

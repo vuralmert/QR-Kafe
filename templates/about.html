@@ -1,0 +1,259 @@
+{% extends 'basic.html' %}
+
+{% block title%} QR Kafe - Hakkımızda{% endblock %}
+
+{% block body %}
+
+  {% load static %}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'shop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'shop/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'shop/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'shop/assets/css/style.css' %}" rel="stylesheet">
+
+
+
+    <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'shop/assets/img/slide/slide-1.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">QR Kafeye <span>Hoş Geldiniz</span></h2>
+                <a href="/home/" class="btn-get-started animate__animated animate__fadeInUp scrollto">Acıktınız mı ?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'shop/assets/img/slide/slide-2.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown mb-0">Misyonumuz</h2>
+                <p class="animate__animated animate__fadeInUp">Her daim akıcı ve sorunsuz hizmeti sizlere sunmaktır.</p>
+                <a href="/home/" class="btn-get-started animate__animated animate__fadeInUp scrollto">Hızlı Bir Başlangıca Ne Dersiniz ?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'shop/assets/img/slide/slide-3.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown mb-0">Mert Vural</h2><p>2190656022</p>
+                <h2 class="animate__animated animate__fadeInDown mb-0">Öyküm Özdebağ Tüney</h2><p>2190656023</p>
+                <h2 class="animate__animated animate__fadeInDown mb-0">Muhammed Harun Aydeniz</h2><p>2190656000</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon icofont-thin-double-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon icofont-thin-double-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+   <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Hakkımızda</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h3><strong>QR Kafeye Hoş Geldiniz</strong></h3>
+            <p class="font-italic">
+              Proje kapsamında muadili olan ve daha önceden yapılmış olan projelere yenilik olarak müşteriler oturdukları yerden masalarında bulunan QR kodu taratarak girmiş oldukları web sitesinden masalarından kalkmadan sipariş verebilecek, siparişlerini buradan takip edebileceklerdir. Bu yeni özelliğe dahil olarak, komiler ve mutfak çalışanları gibi çalışanlar uygulamadan siparişlerin anlık takibini gerçekleştirebilecek ve adisyon kısmında da alınan siparişlerin ödemesi tamamlanabilecek. Bu şekilde işletmelerin garson sınıfı eleman yükünü hafifletmek amaçlanmaktadır.</p>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="skills-content">
+              <p><b>Değerlendirmelerimiz</b></p>
+              <div class="progress">
+                <span class="skill">5 Yıldız <i class="val">93%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">4 Yıldız <i class="val">90%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">3 Yıldız <i class="val">30%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">2 Yıldız <i class="val">5%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">1 Yıldız <i class="val">0%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section class="counts section-bg">
+      <div class="container">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-simple-smile"></i>
+              <span data-toggle="counter-up">232</span>
+              <p><strong>Mutlu Ayrılan Müşteri Sayımız</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-document-folder"></i>
+              <span data-toggle="counter-up">121</span>
+              <p><strong>Ürünlerimiz</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-live-support"></i>
+              <span data-toggle="counter-up">1,463</span>
+              <p><strong>Saatlik Tecrübe</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-users-alt-5"></i>
+              <span data-toggle="counter-up">15</span>
+              <p><strong>Ekip Arkadaşı</strong></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Çalışma Arkadaşlarımız</h2>
+        </div>
+
+        <div class="row" style="padding-left: 379px;">
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
+            <div class="member">
+              <img src="{% static 'shop/assets/img/team/team-1.png' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Mert Vural</h4>
+                </div>
+                <div class="social">
+                  <a href="https://instagram.com/mertovic_" target="_blank"><i class="icofont-instagram"></i></a>
+                  <a href="https://github.com/vuralmert" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/mertvural" target="_blank"><i class="icofont-linkedin" target="_blank"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="member">
+              <img src="{% static 'shop/assets/img/team/team-2.png' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Mert Vural</h4>
+                </div>
+                <div class="social">
+                  <a href="https://instagram.com/mertovic_" target="_blank"><i class="icofont-instagram"></i></a>
+                  <a href="https://github.com/vuralmert" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/mertvural" target="_blank"><i class="icofont-linkedin" target="_blank"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Our Team Section -->
+   </main>
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+$('#popcart').popover();
+updatePopover(cart);
+
+function updatePopover(cart) {
+    var popStr = "";
+    popStr = popStr + "<h5><a href='/checkout'><button class='btn btn-primary'>Ödemeye Geç</button></a></h5><div class='mx-2 my-2'>";
+    document.getElementById("popcart").setAttribute('data-content', popStr);
+    $('#popcart').popover();
+}
+
+</script>
+
+{% load static %}
+  <!-- Vendor JS Files -->
+  <script src="{% static 'shop/assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'shop/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'shop/assets/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'shop/assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'shop/assets/vendor/counterup/counterup.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'shop/assets/js/main.js' %}"></script>
+
+
+{% endblock %}

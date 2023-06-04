@@ -1,0 +1,118 @@
+{% extends 'basic.html' %}
+
+{% block title%} QR Kafe - Sipariş Ver{% endblock %}
+{% block css %}
+    #cont {
+        min-height : 609px;
+    }
+    #cont2 {
+        min-height : 626px;
+    }
+{% endblock %}
+{% block body %}
+
+{% if user.is_authenticated %}
+<div class="container" id="cont">
+    <div class="col my-3">
+        <span id="title"><h2> Siparişinizin İçeriği </h2></span>
+        <div class="my-2">
+            <ul class="list-group" id='items'>
+            </ul>
+        </div>
+    </div>
+    <div class="col my-4">
+        <span id="info">
+        <h2>Merhaba {{ request.user.first_name }}, siparişini tamamlaman için son birkaç adım kaldı.</h2>
+        <form method="post" action="/checkout/">{% csrf_token %}
+            <input type="hidden" name="itemsJson" id="itemsJson">
+            <input type="hidden" name="amount" id="amount">
+            <input type="hidden" name="user_id" id="user_id" value="{{ request.user.id }}">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">İsim</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="İsminiz" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Email">E-Posta</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="E-Posta Adresiniz" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Address1">Masa Numarası</label>
+                <input type="text" class="form-control" id="address1" name="address1" placeholder="Masa Numaranız" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon No.</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="xxxxxxxxxxx" required pattern="[0-9]{10}">
+            </div>
+            <div class="alert alert-info">
+              <strong>Önemli!</strong> Online ödemelerimiz şu an için kullanım dışıdır. Lütfen masada ödeme seçiniz.
+            </div>
+            <button type="submit" class="btn btn-primary" name="onlinePay" disabled>Online Ödeme</button>
+            <button type="submit" class="btn btn-primary" name="cashOnDelivery">Masada Ödeme</button>
+        </form>
+        </span>
+    </div>
+</div>
+{% else %}
+    <div id="cont2">
+        <div class="alert alert-info">
+            <font style="font-size:22px"><center><strong><a class="alert-link" data-toggle="modal" data-target="#loginModal">Önce Giriş Yapmalısınız</a></strong></center></font>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+{% block js %}
+<script>
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+// console.log(cart);
+var sum = 0;
+var sumPrice = 0;
+var totalPrice = 0;
+if ($.isEmptyObject(cart)) {
+    // If object is empty
+    mystr = "<div class='alert alert-info'><font style='font-size:22px'>"
+    mystr = mystr + "<center>Sepetinizde hiç ürün yok, lütfen ödemeye geçmeden önce ürün ekleyin. </center>"
+    mystr = mystr + "<center><a href='/home/' class='alert-link'>Buraya Tıklayarak Ürünlerimize Göz Atabilirsiniz.</a></center></font></div>";
+    $('#items').append(mystr);
+    document.getElementById('info').innerHTML = "";
+    document.getElementById('title').innerHTML = "";
+} else {
+    var i = 0;
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let itemPrice = cart[item][2];
+        sum = sum + qty;
+        sumPrice = qty * itemPrice;
+        totalPrice = totalPrice + sumPrice;
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">${++i} : ${name}<span class="badge badge-primary badge-pill">${qty} x ${itemPrice} TL= ${sumPrice} TL</span></li>`;
+        $('#items').append(mystr);
+    }
+    mystr = `<li class="list-group-item d-flex justify-content-between align-items-center" style="background: bisque;">Toplam Tutar</span><span class="badge badge-danger badge-pill" id="totalPrice">${totalPrice}</span></li>`;
+    $('#items').append(mystr);
+}
+document.getElementById('cart').innerHTML = sum;
+document.getElementById('totalPrice').innerHTML = totalPrice;
+
+$('#itemsJson').val(JSON.stringify(cart));
+$('#amount').val($('#totalPrice').html());
+
+{% if thank %}
+alert('Sipariş verdiğiniz için teşekkür ederiz. Sipariş numaranız {{id}}. Siparişinizin durumunu takip etmek için kullanabilirsiniz.');
+localStorage.clear();
+document.location="/tracker";
+{%endif%}
+
+//    /* restrict user browser click go back button */
+//    function preback() { window.history.forward(); }
+//    setTimeout("preback()", 0);
+//    window.onunload = function() { null };
+</script>
+{% endblock %}
